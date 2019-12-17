@@ -6,6 +6,19 @@ let questionField = false;
 let messageField = false;
 let acceptField = false;
 
+// Выводим сообщение, если форма была отправлена
+function checkFormSubmitted() {
+    var url_string = window.location.href;
+    var url = new URL(url_string);
+// Ищем значение submitButton
+    var submitButton = url.searchParams.get("submitButton");
+    if (submitButton == 'Send') {
+// Показываем сообщение в верхней части страницы
+        formSubmitted.style.display = 'block';
+    }
+
+}
+
 // Добавляем обработку заголовка поля
 function addLabelActivity(field) {
 // Если поле в фокусе, заголовок на рамке поля
@@ -58,6 +71,10 @@ function fieldChange(e) {
             questionField = checkText(field.value);
 // обрабатываем сообщение об ошибке
             setError(questionField, questionError);
+// Если пользватель сделал выбор, убираем пустую строку в вариантах выбора
+            if (questionField) {
+                emptyOption.style.display = 'none';
+            }
             break;
 // обрабатываем поле текста обращения
         case 'message':
@@ -135,6 +152,7 @@ function checkForm() {
 // Форма выбора файла
 function openDialog() {
     document.getElementById('file').click();
+    return false;
 }
 
 // Добавление событий для поля формы
@@ -144,6 +162,9 @@ function addFormFieldActivity() {
         addEventActivity(fields[i]);
     }
 }
+
+// Выводим сообщение, если форма была отправлена
+checkFormSubmitted();
 
 // Добавляем EventListener для флажка согласия на обработку персональных данных
 acceptPersonal.addEventListener('change', (e) => {fieldChange(e)});

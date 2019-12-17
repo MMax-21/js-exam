@@ -10,6 +10,8 @@ const questionError = document.getElementById("question-error");
 const fileButton = document.getElementById("upload");
 const acceptPersonal = document.getElementById("acceptPersonal");
 const submitButton = document.getElementById("submitButton");
+const formSubmitted = document.getElementById("formSubmitted");
+const emptyOption = document.getElementById("emptyOption");
 
 const fields = [
     {

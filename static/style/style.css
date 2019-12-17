@@ -25,18 +25,31 @@
 body {
 	margin: 0;
 	padding: 0;
-    display: flex;
-    justify-content: center;
     font-family: var(--main-font);
     color: var(--form-font-color);
 }
 
 /* Контейнер для формы */
 .container {
-	max-width: 450px;
+    display: flex;
+    margin: auto;
+    max-width: 450px;
     text-align: center;
 }
 
+.form_submitted {
+    color: green;
+    background-color: rgb(212, 237, 218);
+    position: relative;
+    height: 60px;
+}
+
+.form_submitted p {
+    margin: 0;
+    position: absolute;
+    top: 30%;
+    padding-left: 10px;
+}
 /* текст заголовка */
 h1, h2 {
     font-weight: 100;
